@@ -1,0 +1,8 @@
+#Environment config
+.env
+
+#node.js
+node_modules
+
+#Vs code
+.vscode/
