@@ -40,6 +40,26 @@ const createWorkout = async (req, res) => {
     //Destructor the value from the body needed
     const { title, load, reps } = req.body;
 
+    //cratea an array that will hold the value of the field that is empty
+    let emptyFields = [];
+
+    if (!title) {
+        emptyFields.push('title');
+    }
+    if (!load) {
+        emptyFields.push('load');
+    }
+    if (!reps) {
+        emptyFields.push('reps');
+    }
+    if (emptyFields.length > 0) {
+        console.log('hello' + emptyFields);
+        return res.status(400).json({
+            error: 'Please fill in all the fields',
+            emptyFields,
+        });
+    }
+
     //preform a try/catch when trying to add the document to the DB
     try {
         //use create to take the values and put them in a json variable

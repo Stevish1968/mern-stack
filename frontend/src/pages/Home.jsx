@@ -21,10 +21,10 @@ const Home = () => {
                     payload: json,
                 });
             }
-        }
+        };
 
         fetchWorkouts();
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className='home'>
